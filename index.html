@@ -28,6 +28,45 @@
 
   <!-- Begin body -->
   <body>
+    <!-- Begin navbar -->
+    <nav
+      style="background-color: deeppink; font-weight: bold;"
+      class="navbar navbar-expand-sm navbar-dark mb-5"
+    >
+      <!-- Navbar heading -->
+      <a class="navbar-brand" href="index.html">Coding Quiz</a>
+
+      <!-- This creates the collapsing menu icon -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Pushing the nav items to the left -->
+        <ul class="navbar-nav ml-auto">
+          <!-- Navbar links -->
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Code Quiz</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="scores.html">View Scores</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End navbar -->
+    <!-- Create a div for the timer -->
+    <h1 class="time"></h1>
+    <div id="main"></div>
+
     <!-- For Bootstrap, jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -44,7 +83,10 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <!-- End Bootstrap script -->
-    <script src="assets/js/script.js"></script>
+    <!-- End Bootstrap JavaScript -->
+    <!-- My JavaScript -->
+    <script type="text/javascript" src="assets/javascript/script.js"></script>
+    <!-- End my JavaScript -->
   </body>
+  <!-- End body -->
 </html>
