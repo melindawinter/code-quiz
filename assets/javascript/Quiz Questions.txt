@@ -1,8 +1,8 @@
 1. Which of these is an accurate description of JavaScript? (b)
 a. A delicious coffee drink
 b. A computer programming language used to create interactive effects in web browsers
-c. A language used to define color, fonts, text alignment, borders, and other stylisitc elements
-d. A computer languge indistinguishable from Java
+c. A language used to define color, fonts, text alignment, borders, and other stylistic elements
+d. A computer language indistinguishable from Java
 
 2.  Which HTML tag is used to embed JavaScript? (a)
 a. <script>
@@ -22,16 +22,12 @@ b. var = function()
 c. function:thisFunction
 d. function this Function()
 
-5. How do you comment in JavaScript? (b)
+5. How do you write a single line comment in JavaScript? (b)
 a. Yell at your computer
 b. //Write a comment
 c. <!--Write a comment-->
 d. Append a Notes page
 
-6. Which of these arrays is written correctly? (a)
-a. var coffeeDrinks = ["espresso", "latte", "americano", "caramel macchiato"]
-b. coffeeArray = [coffee, red eye, flat white, blended]
-c. var coffeeDrinks = {skinny latte, mocha, cafe au lait, cold brew}
-d. arr coffeeDrinks = ["irish coffee", "espresso con panna", "affogato"]
+
 
  
