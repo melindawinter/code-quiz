@@ -63,6 +63,7 @@
       </div>
     </nav>
     <!-- End navbar -->
+
     <!-- Create a div for the timer -->
     <!-- <h1 class="time"></h1> -->
     <!-- <div id="main"></div> -->
@@ -70,10 +71,13 @@
     <!-- This is to style the background -->
     <main>
       <!-- Container for the quiz -->
-
       <section class="quiz-container">
+        <h1 id="timer" class="time hide"></h1>
+        <!-- Div for the question and answer choices -->
         <div id="question-container" class="hide">
           <div id="question-text">Question</div>
+
+          <!-- Answer choices -->
           <div id="answer-choices" class="btn-grid">
             <button class="btn">Answer 1</button>
             <button class="btn">Answer 2</button>
@@ -81,16 +85,19 @@
             <button class="btn">Answer 4</button>
           </div>
         </div>
+
+        <!-- Start and Next controls -->
         <div class="controls">
-          <button type="button" id="start-btn" class="btn btn-dark">
+          <button type="button" id="start-btn" class="start-btn btn">
             Start
           </button>
-          <button type="button" id="next-button" class="btn btn-dark hide">
+          <button type="button" id="next-btn" class="next-btn btn hide">
             Next
           </button>
         </div>
       </section>
     </main>
+    <!-- End main body background design -->
     <!-- Begin footer -->
     <footer
       style="border-top: 4px solid deeppink; background-color: white;"
