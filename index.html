@@ -31,7 +31,7 @@
     <!-- Begin navbar -->
     <nav
       style="background-color: deeppink; font-weight: bold;"
-      class="navbar navbar-expand-sm navbar-dark mb-5"
+      class="navbar navbar-expand-sm navbar-dark fixed-top"
     >
       <!-- Navbar heading -->
       <a class="navbar-brand" href="index.html">Coding Quiz</a>
@@ -67,29 +67,33 @@
     <!-- <h1 class="time"></h1> -->
     <!-- <div id="main"></div> -->
 
-    <!-- Card for quiz questions -->
+    <!-- This is to style the background -->
+    <main>
+      <!-- Container for the quiz -->
 
-    <main class="container">
-      <h5 id="time"></h5>
-      <div id="question-container" class="hide">
-        <div class="controls">
-          <div id="questionText">Question</div>
-          <div id="answerChoices" class="btn-grid">
+      <section class="quiz-container">
+        <div id="question-container" class="hide">
+          <div id="question-text">Question</div>
+          <div id="answer-choices" class="btn-grid">
             <button class="btn">Answer 1</button>
             <button class="btn">Answer 2</button>
-            <button class="btn">Answer 1</button>
             <button class="btn">Answer 3</button>
             <button class="btn">Answer 4</button>
-            <button class="btn btn-dark">Start</button>
-            <button class="btn btn-dark">Next</button>
           </div>
         </div>
-      </div>
+        <div class="controls">
+          <button type="button" id="start-btn" class="btn btn-dark">
+            Start
+          </button>
+          <button type="button" id="next-button" class="btn btn-dark hide">
+            Next
+          </button>
+        </div>
+      </section>
     </main>
-
     <!-- Begin footer -->
     <footer
-      style="border-top: 4px solid deeppink; background-color: floralwhite;"
+      style="border-top: 4px solid deeppink; background-color: white;"
       class="footer mt-auto py-3 fixed-bottom"
     >
       <div class="container">
