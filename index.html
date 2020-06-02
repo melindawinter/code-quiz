@@ -64,8 +64,53 @@
     </nav>
     <!-- End navbar -->
     <!-- Create a div for the timer -->
-    <h1 class="time"></h1>
-    <div id="main"></div>
+    <!-- <h1 class="time"></h1> -->
+    <!-- <div id="main"></div> -->
+
+    <!-- Card for quiz questions -->
+
+    <main class="container">
+      <h5 id="time"></h5>
+      <div id="question-container" class="hide">
+        <div class="controls">
+          <div id="questionText">Question</div>
+          <div id="answerChoices" class="btn-grid">
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
+            <button class="btn btn-dark">Start</button>
+            <button class="btn btn-dark">Next</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Begin footer -->
+    <footer
+      style="border-top: 4px solid deeppink; background-color: floralwhite;"
+      class="footer mt-auto py-3 fixed-bottom"
+    >
+      <div class="container">
+        <span class="text-muted">
+          <!-- Social media links with images -->
+          <a href="mailto:melindawinter42@gmail.com"
+            ><img src="assets/images/gmail-icon-24.png" alt="gmail icon"
+          /></a>
+          <a href="https://github.com/melindawinter" target="_blank">
+            <img src="assets/images/octocat24.png" alt="github icon" />
+          </a>
+          <a
+            href="http://www.linkedin.com/in/melinda-winter-34a25689"
+            target="_blank"
+          >
+            <img src="assets/images/linkedin.png" alt="linkedin icon" />
+          </a>
+        </span>
+      </div>
+    </footer>
+    <!-- End footer -->
 
     <!-- For Bootstrap, jQuery first, then Popper.js, then Bootstrap JS -->
     <script

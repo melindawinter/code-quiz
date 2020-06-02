@@ -1,12 +1,11 @@
-var timeEl = document.querySelector(".time");
-var mainEl = document.getElementById("main");
+var timeEl = document.querySelector("#time");
 
-var secondsLeft = 75;
+var secondsLeft = 76;
 
 function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left until time is up!";
+    timeEl.textContent = secondsLeft + " seconds left to finish the quiz!";
 
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
@@ -16,12 +15,7 @@ function setTime() {
 }
 
 function sendMessage() {
-  timeEl.textContent = " ";
-
-  var imgEl = document.createElement("img");
-
-  imgEl.setAttribute("src", "images/image_1.jpg");
-  mainEl.appendChild(imgEl);
+  timeEl.textContent = "Time's Up!";
 }
 
 setTime();
