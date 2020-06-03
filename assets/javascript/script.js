@@ -2,62 +2,55 @@
 var startButton = document.getElementById("start-btn");
 var questionContainerEl = document.getElementById("question-container");
 var quizTimerEl = document.getElementById("timer");
+var questionEl = document.getElementById("question-text");
+var answersEl = document.getElementById("answer-choices");
 var questions = [
   {
     question: "Which of these is an accurate description of JavaScript?",
-    answerChoices: [
-      { text: "A delicious coffee drink", correct: false },
-      {
-        text:
-          "A computer programming language used to create interactive effects in web browsers",
-        correct: true,
-      },
-      {
-        text:
-          "A language used to define color, fonts, text alignment, borders, and other stylistic elements",
-        correct: false,
-      },
-      {
-        text: "A computer language indistinguishable from Java",
-        correct: false,
-      },
+    choices: [
+      "A delicious coffee drink",
+      "A computer programming language used to create interactive effects in web browsers",
+      "A language used to define color, fonts, text alignment, borders, and other stylistic elements",
+      "A computer language indistinguishable from Java",
     ],
+    answer:
+      "A computer programming language used to create interactive effects in web browsers",
   },
+
   {
     question: "Which HTML tag is used to embed JavaScript?",
-    answerChoices: [
-      { text: "<script>", correct: true },
-      { text: "<java>", correct: false },
-      { text: "<barista>", correct: false },
-      { text: "<js>", correct: false },
-    ],
+    choices: ["<script>", "<java>", "<barista>", "<js>"],
+    answer: "<script>",
   },
   {
     question: "How would you write the message 'I love cats' in an alert box?",
-    answerChoices: [
-      { text: "prompt('I love cats');", correct: false },
-      { text: "fancybox('I love cats');", correct: false },
-      { text: "alert('I love cats');", correct: true },
-      { text: "espresso('I love cats');", correct: false },
+    choices: [
+      "prompt('I love cats');",
+      "fancybox('I love cats');",
+      "alert('I love cats');",
+      "espresso('I love cats');",
     ],
+    answer: "alert('I love cats');",
   },
   {
     question: "Which of these is a proper way to create a function?",
-    answerChoices: [
-      { text: "console.log('thisFunction')", correct: false },
-      { text: "alert(function)", correct: false },
-      { text: "function:thisFunction", correct: false },
-      { text: "function thisFunction()", correct: true },
+    choices: [
+      "console.log('thisFunction')",
+      "alert(function)",
+      "function:thisFunction",
+      "function thisFunction()",
     ],
+    answer: "function thisFunction()",
   },
   {
     question: "How do you write a single line comment in JavaScript?",
-    answerChoices: [
-      { text: "Yell at your computer", correct: false },
-      { text: "//Write a comment", correct: true },
-      { text: "<!--Write a comment-->", correct: false },
-      { text: "Append a Notes page", correct: false },
+    choices: [
+      "Yell at your computer",
+      "//Write a comment",
+      "<!--Write a comment-->",
+      "Append a Notes page",
     ],
+    answer: "//Write a comment",
   },
 ];
 
@@ -70,12 +63,16 @@ function startQuiz() {
   startButton.classList.add("hide");
   questionContainerEl.classList.remove("hide");
   quizTimerEl.classList.remove("hide");
-  setNextQuestion();
+  showQuestion();
 }
 
 // Set next question
 
-//function nextQuestion() {}
+function showQuestion() {
+  for (var i = 0; i > questions.length; i++) {
+    questionEl.innerText = questions.question;
+  }
+}
 
 // Select answer
 

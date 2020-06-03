@@ -16,11 +16,11 @@ b. fancybox("I love cats");
 c. alert("I love cats");
 d. espresso("I love cats");
 
-4. Which of these is the proper way to create a function? (d)
-a. console.log("thisFunction")
-b. var = function()
+4. Which of these is a proper way to create a function? (d)
+a. console.log('thisFunction')
+b. alert(function)
 c. function:thisFunction
-d. function this Function()
+d. function thisFunction()
 
 5. How do you write a single line comment in JavaScript? (b)
 a. Yell at your computer
