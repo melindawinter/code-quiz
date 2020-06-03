@@ -43,7 +43,6 @@ main {
 .btn {
   background-color: lightgrey;
   padding: 5px 10px;
-  border: 1px solid lightgrey;
 }
 
 /* Hover effect for buttons */
@@ -53,12 +52,12 @@ main {
 
 /* Color for correct answers */
 .btn.correct {
-  background-color: green;
+  background-color: rgb(103, 165, 103);
 }
 
 /* Color for wrong answers */
 .btn.wrong {
-  background-color: red;
+  background-color: rgb(202, 55, 55);
 }
 
 /* Styling for Start and Next buttons */
