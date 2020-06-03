@@ -1,10 +1,14 @@
 //Declare variables
 var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
+var scoresButton = document.getElementById("scores-btn");
 var questionContainerEl = document.getElementById("question-container");
 var quizTimerEl = document.getElementById("timer");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons");
+var shuffledQuestions, currentQuestionIndex;
+
+//Questions and answers array
 var questions = [
   {
     question: "Which of these is an accurate description of JavaScript?",
@@ -64,25 +68,27 @@ var questions = [
     ],
   },
 ];
-var shuffledQuestions, currentQuestionIndex;
 
 //Event listener for Start button
 startButton.addEventListener("click", startQuiz);
+nextButton.addEventListener("click", () => {
+  currentQuestionIndex++;
+  setNextQuestion();
+});
 
 //Function for starting quiz
 function startQuiz() {
-  console.log("started");
   startButton.classList.add("hide");
-  questionContainerEl.classList.remove("hide");
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
+  questionContainerEl.classList.remove("hide");
   quizTimerEl.classList.remove("hide");
   setNextQuestion();
 }
 
 // Randomly select next question
-
 function setNextQuestion() {
+  resetState();
   showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
@@ -110,13 +116,18 @@ function resetState() {
 
 // Select answer
 function selectAnswer(e) {
-  var selectedAnswer = e.target;
+  var selectedButton = e.target;
   var correct = selectedButton.dataset.correct;
   setStatusClass(document.body, correct);
   Array.from(answerButtonsEl.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
   });
-  nextButton.classList.remove("hide");
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove("hide");
+  } else {
+    startButton.innerText = "Restart";
+    startButton.classList.remove("hide");
+  }
 }
 
 function setStatusClass(element, correct) {
