@@ -70,7 +70,7 @@ function startQuiz() {
 
 function showQuestion() {
   for (var i = 0; i > questions.length; i++) {
-    questionEl.innerText = questions.question;
+    questionEl.textContent = questions.question;
   }
 }
 
@@ -96,7 +96,7 @@ function setTime() {
 }
 
 function sendMessage() {
-  timeEl.textContent = "Time's Up!";
+  quizTimerEl.textContent = "Time's Up!";
 }
 
 setTime();
