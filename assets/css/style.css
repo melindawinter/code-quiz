@@ -41,7 +41,8 @@ main {
 
 /* Styling for answer and start/next buttons */
 .btn {
-  background-color: lightgrey;
+  background-color: grey;
+  color: white;
   padding: 5px 10px;
 }
 
@@ -67,6 +68,10 @@ main {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
+}
+
+.scores-btn {
+  margin-left: 20px;
 }
 
 .controls {

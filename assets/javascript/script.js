@@ -125,6 +125,7 @@ function selectAnswer(e) {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
   } else {
+    scoresButton.classList.remove("hide");
     startButton.innerText = "Restart";
     startButton.classList.remove("hide");
   }
