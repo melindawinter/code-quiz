@@ -53,12 +53,12 @@ main {
 
 /* Color for correct answers */
 .btn.correct {
-  background-color: rgb(103, 165, 103);
+  background-color: deeppink;
 }
 
 /* Color for wrong answers */
 .btn.wrong {
-  background-color: rgb(202, 55, 55);
+  background-color: lightgrey;
 }
 
 /* Styling for Start and Next buttons */

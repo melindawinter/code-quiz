@@ -3,6 +3,7 @@ var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
 var scoresButton = document.getElementById("scores-btn");
 var questionContainerEl = document.getElementById("question-container");
+var userFeedback = document.getElementById("feedback");
 var quizTimerEl = document.getElementById("timer");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons");
@@ -109,6 +110,7 @@ function showQuestion(question) {
 
 function resetState() {
   nextButton.classList.add("hide");
+  userFeedback.classList.add("hide");
   while (answerButtonsEl.firstChild) {
     answerButtonsEl.removeChild(answerButtonsEl.firstChild);
   }
@@ -124,6 +126,7 @@ function selectAnswer(e) {
   });
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
+    userFeedback.classList.remove("hide");
   } else {
     scoresButton.classList.remove("hide");
     startButton.innerText = "Restart";
@@ -135,8 +138,10 @@ function setStatusClass(element, correct) {
   clearStatusClass(element);
   if (correct) {
     element.classList.add("correct");
+    $("#feedback").text("You are correct!");
   } else {
     element.classList.add("wrong");
+    $("#feedback").text("Sorry, you are incorrect.");
   }
 }
 
@@ -145,6 +150,7 @@ function clearStatusClass(element) {
   element.classList.remove("wrong");
 }
 
+//Make the feedback so that it says you are correct or sorry, your answer "" is incorrect
 //Timer
 var timeEl = document.querySelector("#time");
 
