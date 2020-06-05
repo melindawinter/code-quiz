@@ -2,8 +2,10 @@
 
 //Declare variables
 var startButton = document.getElementById("start-btn");
+//var startButton = $("#start-btn");
 var nextButton = document.getElementById("next-btn");
 var scoresButton = document.getElementById("scores-btn");
+var restartButton = document.getElementById("restart-btn");
 var questionContainerEl = document.getElementById("question-container");
 var userFeedback = document.getElementById("feedback");
 var quizTimerEl = document.getElementById("timer");
@@ -33,6 +35,7 @@ var questions = [
         correct: false,
       },
     ],
+    correctAnswer: 1,
   },
 
   {
@@ -43,6 +46,7 @@ var questions = [
       { text: "<js>", correct: false },
       { text: "<script>", correct: true },
     ],
+    correctAnswer: 3,
   },
   {
     question: "How would you write the message 'I love cats' in an alert box?",
@@ -52,6 +56,7 @@ var questions = [
       { text: "alert('I love cats');", correct: true },
       { text: "espresso('I love cats');", correct: false },
     ],
+    correctAnswer: 2,
   },
   {
     question: "Which of these is a proper way to create a function?",
@@ -61,6 +66,7 @@ var questions = [
       { text: "function:thisFunction", correct: false },
       { text: "function thisFunction()", correct: true },
     ],
+    correctAnswer: 3,
   },
   {
     question: "How do you write a single line comment in JavaScript?",
@@ -70,8 +76,11 @@ var questions = [
       { text: "<!--Write a comment-->", correct: false },
       { text: "Append a Notes page", correct: false },
     ],
+    correctAnswer: 1,
   },
 ];
+
+$("#scores").empty();
 
 //Event listener for Start button
 startButton.addEventListener("click", startQuiz);
@@ -105,7 +114,10 @@ function showQuestion(question) {
     button.classList.add("btn");
     if (answer.correct) {
       button.dataset.correct = answer.correct;
+    } else {
+      button.dataset.correct;
     }
+
     button.addEventListener("click", selectAnswer);
     answerButtonsEl.appendChild(button);
   });
@@ -122,19 +134,25 @@ function resetState() {
 // Select answer
 function selectAnswer(e) {
   var selectedButton = e.target;
-  if (correct === true) {
+
+  /*if (selectedButton === questions.correctAnswer) {
     score++;
+    $("#score").text("Score: " + score);
     $("#feedback").text("You are correct!");
   } else {
-    score--;
     $("#score").text("Score: " + score);
     secondsLeft = secondsLeft - 5;
     $("#feedback").text("Sorry, you are incorrect.");
-  }
-
+  }*/
   var correct = selectedButton.dataset.correct;
   setStatusClass(document.body, correct);
-
+  console.log(correct);
+  if (correct) {
+    score++;
+    console.log(score);
+  } else {
+    console.log("oops");
+  }
   Array.from(answerButtonsEl.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
   });
@@ -143,9 +161,9 @@ function selectAnswer(e) {
     userFeedback.classList.remove("hide");
   } else {
     scoresButton.classList.remove("hide");
-    startButton.innerText = "Restart";
-    startButton.classList.remove("hide");
+
     userFeedback.classList.remove("hide");
+    restartButton.classList.remove("hide");
   }
 }
 
@@ -153,14 +171,14 @@ function setStatusClass(element, correct) {
   clearStatusClass(element);
 
   if (correct) {
-    element.classList.add("correct");
+    element.classList.add("right");
   } else {
     element.classList.add("wrong");
   }
 }
 
 function clearStatusClass(element) {
-  element.classList.remove("correct");
+  element.classList.remove("right");
   element.classList.remove("wrong");
 }
 
@@ -186,3 +204,18 @@ function sendMessage() {
 }
 
 setTime();
+
+//call this earlier
+function printScores() {
+  $("#scores").append("<h2>Final Score: " + score + "</h2>");
+}
+
+// $(restartButton).on("click", function () {
+//   resetQuiz();
+// });
+
+// function resetQuiz() {
+//   score = 0;
+//   secondsLeft = 76;
+//   startQuiz();
+// }

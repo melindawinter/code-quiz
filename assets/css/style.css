@@ -52,21 +52,13 @@ main {
 }
 
 /* Color for correct answers */
-.btn.correct {
+.btn.right {
   background-color: deeppink;
 }
 
 /* Color for wrong answers */
 .btn.wrong {
   background-color: lightgrey;
-}
-
-#feedback.correct {
-  color: black;
-}
-
-#feedback.wrong {
-  color: red;
 }
 
 /* Styling for Start and Next buttons */
