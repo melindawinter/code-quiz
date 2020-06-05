@@ -1,3 +1,5 @@
+// things to fix: correct answer and score issue, stop quiz at 0 sec, on clicking the restart button restart timer and score, have scores print and save to scores page
+
 //Declare variables
 var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
@@ -8,6 +10,7 @@ var quizTimerEl = document.getElementById("timer");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons");
 var shuffledQuestions, currentQuestionIndex;
+var score = 0;
 
 //Questions and answers array
 var questions = [
@@ -35,10 +38,10 @@ var questions = [
   {
     question: "Which HTML tag is used to embed JavaScript?",
     answers: [
-      { text: "<script>", correct: true },
       { text: "<java>", correct: false },
       { text: "<barista>", correct: false },
       { text: "<js>", correct: false },
+      { text: "<script>", correct: true },
     ],
   },
   {
@@ -119,8 +122,19 @@ function resetState() {
 // Select answer
 function selectAnswer(e) {
   var selectedButton = e.target;
+  if (correct === true) {
+    score++;
+    $("#feedback").text("You are correct!");
+  } else {
+    score--;
+    $("#score").text("Score: " + score);
+    secondsLeft = secondsLeft - 5;
+    $("#feedback").text("Sorry, you are incorrect.");
+  }
+
   var correct = selectedButton.dataset.correct;
   setStatusClass(document.body, correct);
+
   Array.from(answerButtonsEl.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
   });
@@ -131,17 +145,17 @@ function selectAnswer(e) {
     scoresButton.classList.remove("hide");
     startButton.innerText = "Restart";
     startButton.classList.remove("hide");
+    userFeedback.classList.remove("hide");
   }
 }
 
 function setStatusClass(element, correct) {
   clearStatusClass(element);
+
   if (correct) {
     element.classList.add("correct");
-    $("#feedback").text("You are correct!");
   } else {
     element.classList.add("wrong");
-    $("#feedback").text("Sorry, you are incorrect.");
   }
 }
 
@@ -150,7 +164,6 @@ function clearStatusClass(element) {
   element.classList.remove("wrong");
 }
 
-//Make the feedback so that it says you are correct or sorry, your answer "" is incorrect
 //Timer
 var timeEl = document.querySelector("#time");
 
@@ -161,7 +174,7 @@ function setTime() {
     secondsLeft--;
     quizTimerEl.textContent = secondsLeft + " seconds left!";
 
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0) {
       clearInterval(timerInterval);
       sendMessage();
     }

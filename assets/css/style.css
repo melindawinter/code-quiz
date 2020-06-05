@@ -61,6 +61,14 @@ main {
   background-color: lightgrey;
 }
 
+#feedback.correct {
+  color: black;
+}
+
+#feedback.wrong {
+  color: red;
+}
+
 /* Styling for Start and Next buttons */
 .start-btn,
 .next-btn,
