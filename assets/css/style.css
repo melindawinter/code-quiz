@@ -63,21 +63,38 @@ main {
 
 /* Styling for Start and Next buttons */
 .start-btn,
-.next-btn,
-.scores-btn {
+.next-btn {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
 }
-
-.scores-btn {
-  margin-left: 20px;
-}
-
+/* Styling for controls div */
 .controls {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Styling for buttons on scores page */
+#clear {
+  float: right;
+}
+#back {
+  float: left;
+}
+
+/* Styling for the scores div */
+#scores {
+  font-size: 25px;
+  padding: 10px;
+  color: black;
+}
+
+/* Styling for score card container */
+#card-container {
+  text-align: center;
+  margin: 0 auto;
+  float: none;
 }
 
 .hide {

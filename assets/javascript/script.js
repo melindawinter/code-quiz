@@ -1,3 +1,5 @@
+//see week 5 folder 21
+
 //Declare variables
 var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
@@ -93,6 +95,20 @@ function startQuiz() {
   setNextQuestion();
 }
 
+//Function to make the timer work
+
+function setTime() {
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    quizTimerEl.textContent = secondsLeft + " seconds left!";
+
+    if (secondsLeft <= 0) {
+      clearInterval(timerInterval);
+      timesUp();
+    }
+  }, 1000);
+}
+
 // Randomly select next question
 function setNextQuestion() {
   resetState();
@@ -125,7 +141,20 @@ function resetState() {
     answerButtonsEl.removeChild(answerButtonsEl.firstChild);
   }
 }
+//These functions create the style for correct and incorrect answers
+function setStatusClass(element, correct) {
+  clearStatusClass(element);
 
+  if (correct) {
+    element.classList.add("right");
+  } else {
+    element.classList.add("wrong");
+  }
+}
+function clearStatusClass(element) {
+  element.classList.remove("right");
+  element.classList.remove("wrong");
+}
 // Select answer
 function selectAnswer(e) {
   var selectedButton = e.target;
@@ -148,17 +177,24 @@ function selectAnswer(e) {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
     userFeedback.classList.remove("hide");
+    //what happens when all of the questions have been cycled through
   } else {
-    userFeedback.classList.remove("hide");
-    questionContainerEl.classList.add("hide");
-    nextButton.classList.add("hide");
-    userFeedback.classList.add("hide");
+    quizTimerEl.classList.add("hide");
     endQuiz();
   }
 }
+//This function stops the quiz if the user runs out of time
+function timesUp() {
+  endQuiz();
+  quizTimerEl.classList.add("hide");
+}
+
 //This function ends the quiz
 function endQuiz() {
-  quizTimerEl.classList.add("hide");
+  userFeedback.classList.remove("hide");
+  questionContainerEl.classList.add("hide");
+  nextButton.classList.add("hide");
+  userFeedback.classList.add("hide");
   getForm();
 }
 
@@ -173,51 +209,11 @@ function getForm() {
 submitButton.addEventListener("click", function (event) {
   event.preventDefault();
 
-  var response = initialsEl.value;
+  var response = initialsEl.value + " Final Score: " + score;
 
   console.log(response);
-  alert(response + " Final Score: " + score);
+  alert(response);
   //finalScoresEl.textContent = response;
 
   $("#scores").append(response + " Final Score: " + score);
 });
-
-//This creates the style for correct and incorrect answers
-function setStatusClass(element, correct) {
-  clearStatusClass(element);
-
-  if (correct) {
-    element.classList.add("right");
-  } else {
-    element.classList.add("wrong");
-  }
-}
-
-function clearStatusClass(element) {
-  element.classList.remove("right");
-  element.classList.remove("wrong");
-}
-
-//Functions to make the timer work
-
-function setTime() {
-  var timerInterval = setInterval(function () {
-    secondsLeft--;
-    quizTimerEl.textContent = secondsLeft + " seconds left!";
-
-    if (secondsLeft <= 0) {
-      clearInterval(timerInterval);
-      timesUp();
-    }
-  }, 1000);
-}
-
-function timesUp() {
-  quizTimerEl.textContent = "Time's Up!";
-  userFeedback.classList.remove("hide");
-  questionContainerEl.classList.add("hide");
-
-  nextButton.classList.add("hide");
-  userFeedback.classList.add("hide");
-  endQuiz();
-}
