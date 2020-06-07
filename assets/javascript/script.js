@@ -1,14 +1,14 @@
-// things to fix: correct answer and score issue, stop quiz at 0 sec, on clicking the restart button restart timer and score, have scores print and save to scores page
-
 //Declare variables
 var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
-var scoresButton = document.getElementById("scores-btn");
 var questionContainerEl = document.getElementById("question-container");
 var userFeedback = document.getElementById("feedback");
 var quizTimerEl = document.getElementById("timer");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons");
+var formEl = document.getElementById("form");
+var initialsEl = document.getElementById("user-initials");
+var submitButton = document.getElementById("submit");
 var shuffledQuestions, currentQuestionIndex;
 var score = 0;
 var secondsLeft = 76;
@@ -112,12 +112,13 @@ function showQuestion(question) {
     } else {
       button.dataset.correct;
     }
-
+    //Event listener for user selecting an answer
     button.addEventListener("click", selectAnswer);
     answerButtonsEl.appendChild(button);
   });
 }
 
+//Reset for next question
 function resetState() {
   nextButton.classList.add("hide");
   userFeedback.classList.add("hide");
@@ -131,6 +132,7 @@ function selectAnswer(e) {
   var selectedButton = e.target;
   var correct = selectedButton.dataset.correct;
   setStatusClass(document.body, correct);
+  //What will happen for correct and incorrect answers
   if (correct) {
     score++;
     $("#score").text("Score: " + score);
@@ -143,18 +145,28 @@ function selectAnswer(e) {
   Array.from(answerButtonsEl.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
   });
+  //What happens during the quiz
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
     userFeedback.classList.remove("hide");
+    //What happens when all of the questions have been answered
   } else {
-    scoresButton.classList.remove("hide");
     userFeedback.classList.remove("hide");
-    quizTimerEl.classList.add("hide");
-    secondsLeft = 3;
-    $("#score").hide(score);
+    secondsLeft = 10;
+    //endQuiz()
   }
+
+  //function endQuiz() {
+  //quizTimerEl.classList.add("hide");
 }
 
+// getInitials();
+function getInitials() {
+  formEl.classList.remove("hide");
+  initialsEl.classList.remove("hide");
+  submitButton.classList.remove("hide");
+}
+//This creates the style for correct and incorrect answers
 function setStatusClass(element, correct) {
   clearStatusClass(element);
 
@@ -170,7 +182,7 @@ function clearStatusClass(element) {
   element.classList.remove("wrong");
 }
 
-//Timer
+//Functions to make the timer work
 
 function setTime() {
   var timerInterval = setInterval(function () {
@@ -191,14 +203,6 @@ function sendMessage() {
   userFeedback.classList.add("hide");
 }
 
-//call this earlier
-//function printScores() {
-// $("#scores").append("Final Score: " + score);
-//}
-
-//printScores();
-//function endQuiz() {}
-
 /*textAreaEl.addEventListener("keydown", function (event) {
   var key = event.key.toLowerCase();
   var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split(
@@ -209,4 +213,14 @@ function sendMessage() {
       element.textContent += event.key;
     });
   }
+
+
+
 });*/
+//call this earlier
+//function printScores() {
+// $("#scores").append("Final Score: " + score);
+//}
+
+//printScores();
+//function endQuiz() {}
