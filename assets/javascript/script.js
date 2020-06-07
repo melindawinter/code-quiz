@@ -9,9 +9,10 @@ var answerButtonsEl = document.getElementById("answer-buttons");
 var formEl = document.getElementById("form");
 var initialsEl = document.getElementById("user-initials");
 var submitButton = document.getElementById("submit");
+var finalScoresEl = document.getElementById("scores");
 var shuffledQuestions, currentQuestionIndex;
 var score = 0;
-var secondsLeft = 10;
+var secondsLeft = 75;
 
 //Questions and answers array
 var questions = [
@@ -147,33 +148,40 @@ function selectAnswer(e) {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
     userFeedback.classList.remove("hide");
-    //What happens when all of the questions have been answered
-  } else if (
-    shuffledQuestions.length > currentQuestionIndex + 1 &&
-    secondsLeft <= 0
-  ) {
-    endQuiz();
   } else {
     userFeedback.classList.remove("hide");
-    secondsLeft = 10;
     questionContainerEl.classList.add("hide");
     nextButton.classList.add("hide");
     userFeedback.classList.add("hide");
     endQuiz();
   }
 }
-
+//This function ends the quiz
 function endQuiz() {
   quizTimerEl.classList.add("hide");
-  getInitials();
+  getForm();
 }
 
-// getInitials();
-function getInitials() {
+// This function generates the form for getting initials after the quiz ends
+function getForm() {
   formEl.classList.remove("hide");
   initialsEl.classList.remove("hide");
   submitButton.classList.remove("hide");
 }
+
+//This is for the form input and submission
+submitButton.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  var response = initialsEl.value;
+
+  console.log(response);
+  alert(response + " Final Score: " + score);
+  //finalScoresEl.textContent = response;
+
+  $("#scores").append(response + " Final Score: " + score);
+});
+
 //This creates the style for correct and incorrect answers
 function setStatusClass(element, correct) {
   clearStatusClass(element);
@@ -211,7 +219,5 @@ function timesUp() {
 
   nextButton.classList.add("hide");
   userFeedback.classList.add("hide");
+  endQuiz();
 }
-
-// function printScores() {
-// $("#scores").append("Final Score: " + score);}
