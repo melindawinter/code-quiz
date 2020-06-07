@@ -11,7 +11,7 @@ var initialsEl = document.getElementById("user-initials");
 var submitButton = document.getElementById("submit");
 var shuffledQuestions, currentQuestionIndex;
 var score = 0;
-var secondsLeft = 76;
+var secondsLeft = 10;
 
 //Questions and answers array
 var questions = [
@@ -73,8 +73,6 @@ var questions = [
     ],
   },
 ];
-
-//$("#scores").empty();
 
 //Event listener for Start button
 startButton.addEventListener("click", startQuiz);
@@ -145,19 +143,29 @@ function selectAnswer(e) {
   Array.from(answerButtonsEl.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
   });
-  //What happens during the quiz
+  //What happens during the duration of the quiz
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
     userFeedback.classList.remove("hide");
     //What happens when all of the questions have been answered
+  } else if (
+    shuffledQuestions.length > currentQuestionIndex + 1 &&
+    secondsLeft <= 0
+  ) {
+    endQuiz();
   } else {
     userFeedback.classList.remove("hide");
     secondsLeft = 10;
-    //endQuiz()
+    questionContainerEl.classList.add("hide");
+    nextButton.classList.add("hide");
+    userFeedback.classList.add("hide");
+    endQuiz();
   }
+}
 
-  //function endQuiz() {
-  //quizTimerEl.classList.add("hide");
+function endQuiz() {
+  quizTimerEl.classList.add("hide");
+  getInitials();
 }
 
 // getInitials();
@@ -191,36 +199,19 @@ function setTime() {
 
     if (secondsLeft <= 0) {
       clearInterval(timerInterval);
-      sendMessage();
+      timesUp();
     }
   }, 1000);
 }
 
-function sendMessage() {
+function timesUp() {
   quizTimerEl.textContent = "Time's Up!";
+  userFeedback.classList.remove("hide");
   questionContainerEl.classList.add("hide");
+
   nextButton.classList.add("hide");
   userFeedback.classList.add("hide");
 }
 
-/*textAreaEl.addEventListener("keydown", function (event) {
-  var key = event.key.toLowerCase();
-  var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split(
-    ""
-  );
-  if (alphabetNumericCharacters.includes(key)) {
-    elements.forEach(function (element) {
-      element.textContent += event.key;
-    });
-  }
-
-
-
-});*/
-//call this earlier
-//function printScores() {
-// $("#scores").append("Final Score: " + score);
-//}
-
-//printScores();
-//function endQuiz() {}
+// function printScores() {
+// $("#scores").append("Final Score: " + score);}
