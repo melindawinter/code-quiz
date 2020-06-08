@@ -68,7 +68,19 @@
     <main>
       <!-- Container for the quiz -->
       <section class="quiz-container">
-        <h1 id="timer" class="time hide"></h1>
+        <h1 id="timer" class="hide"></h1>
+        <!-- Message for beginning of quiz -->
+        <h1 id="welcome">
+          Press Start to test your coding knowledge! You will get one point for
+          each right answer and will lose 10 seconds for each wrong answer.
+        </h1>
+        <!-- Message for end of quiz -->
+        <h1 id="end-quiz" class="hide">
+          Congrats on finishing the quiz! Click Get Score to find out how you
+          did, then click Post Score to add your score to the Scores page.
+        </h1>
+        <!-- A div to print the final score -->
+        <div id="final-score"></div>
         <!-- Div for the question and answer choices -->
         <div id="question-container" class="hide">
           <div id="question">Question</div>
@@ -86,9 +98,9 @@
         <div id="feedback"></div>
 
         <!-- A place for the score -->
-        <div id="score"></div>
+        <div id="score-div"></div>
 
-        <!-- Start and Next controls -->
+        <!-- Start, next, and scores controls -->
         <div class="controls">
           <button id="start-btn" class="start-btn btn">
             Start
@@ -96,23 +108,25 @@
           <button id="next-btn" class="next-btn btn hide">
             Next
           </button>
+          <button id="get-scores-btn" class="scores-btn btn hide">
+            Get Score
+          </button>
+          <a href="scores.html" id="scores-btn" class="scores-btn btn hide">
+            Post Score
+          </a>
         </div>
 
-        <!-- Input for user's initials -->
+        <!-- End of quiz -->
 
-        <form id="form" class="hide">
-          <input id="user-initials" placeholder="Type your initials" />
+        <!-- <form id="form" method="POST" class="hide">
+          <input
+            id="user-initials"
+            class="hide"
+            placeholder="Type your initials"
+          />
 
-          <button id="submit">Submit</button>
-        </form>
-
-        <!-- <a href="scores.html">
-            <button id="scores-btn" class="scores-btn btn hide">
-
-
-
-              Scores
-            </button></a -->
+          <button id="submit" class="btn hide">Submit</button>
+        </form> -->
       </section>
     </main>
     <!-- End main body background design -->

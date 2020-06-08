@@ -1,17 +1,19 @@
-//see week 5 folder 21
-
 //Declare variables
 var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
+var scoresButton = document.getElementById("scores-btn");
+var getScoreButton = document.getElementById("get-scores-btn");
+var endQuizEl = document.getElementById("end-quiz");
+var welcomeEl = document.getElementById("welcome");
 var questionContainerEl = document.getElementById("question-container");
 var userFeedback = document.getElementById("feedback");
 var quizTimerEl = document.getElementById("timer");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons");
-var formEl = document.getElementById("form");
-var initialsEl = document.getElementById("user-initials");
-var submitButton = document.getElementById("submit");
-var finalScoresEl = document.getElementById("scores");
+//var formEl = document.getElementById("form");
+//var initialsEl = document.getElementById("user-initials");
+//var submitButton = document.getElementById("submit");
+var finalScoresEl = document.getElementById("final-score");
 var shuffledQuestions, currentQuestionIndex;
 var score = 0;
 var secondsLeft = 75;
@@ -91,6 +93,7 @@ function startQuiz() {
   currentQuestionIndex = 0;
   questionContainerEl.classList.remove("hide");
   quizTimerEl.classList.remove("hide");
+  welcomeEl.classList.add("hide");
   setTime();
   setNextQuestion();
 }
@@ -195,25 +198,16 @@ function endQuiz() {
   questionContainerEl.classList.add("hide");
   nextButton.classList.add("hide");
   userFeedback.classList.add("hide");
-  getForm();
-}
-
-// This function generates the form for getting initials after the quiz ends
-function getForm() {
-  formEl.classList.remove("hide");
-  initialsEl.classList.remove("hide");
-  submitButton.classList.remove("hide");
+  endQuizEl.classList.remove("hide");
+  scoresButton.classList.remove("hide");
+  getScoreButton.classList.remove("hide");
 }
 
 //This is for the form input and submission
-submitButton.addEventListener("click", function (event) {
+getScoreButton.addEventListener("click", function (event) {
   event.preventDefault();
 
-  var response = initialsEl.value + " Final Score: " + score;
+  var userScore = "Your Final Score: " + score;
 
-  console.log(response);
-  alert(response);
-  //finalScoresEl.textContent = response;
-
-  $("#scores").append(response + " Final Score: " + score);
+  finalScoresEl.textContent = userScore;
 });

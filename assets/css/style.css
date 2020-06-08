@@ -43,7 +43,6 @@ main {
 .btn {
   background-color: grey;
   color: white;
-  padding: 5px 10px;
 }
 
 /* Hover effect for buttons */
@@ -61,18 +60,54 @@ main {
   background-color: lightgrey;
 }
 
-/* Styling for Start and Next buttons */
+/* Styling for start and next buttons */
 .start-btn,
 .next-btn {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
 }
+
+/* Styling for score buttons */
+#scores-btn,
+#get-scores-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px;
+  margin: 20px;
+}
+
 /* Styling for controls div */
 .controls {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Styling for beginning of quiz message */
+#welcome {
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Styling for end of quiz message */
+#end-quiz,
+#final-score {
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Styling for the initials submission form */
+#form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#user-initials {
+  padding: 10px;
 }
 
 /* Styling for buttons on scores page */
