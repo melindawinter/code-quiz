@@ -31,7 +31,7 @@
     <!-- Begin navbar -->
     <nav
       style="background-color: deeppink; font-weight: bold;"
-      class="navbar navbar-expand-sm navbar-dark mb-5"
+      class="navbar navbar-expand-sm navbar-dark fixed-top"
     >
       <!-- Navbar heading -->
       <a class="navbar-brand" href="index.html">Coding Quiz</a>
@@ -63,35 +63,38 @@
       </div>
     </nav>
     <!-- End navbar -->
-
-    <!-- Begin card for scores -->
-    <section class="col-sm-4" id="card-container">
-      <div class="card border-dark">
-        <div class="card-body">
-          <h1 class="card-title" style="font-size: 50px; padding: 10px;">
-            Top Scores
-          </h1>
-          <div class="user-scores">
-            <!-- Form for user input -->
-            <form id="user-form" method="POST">
-              <label for="user-text"
-                >Tye your initials and score and press Enter!</label
-              >
-              <!-- Input text field -->
-              <input
-                type="text"
-                placeholder="Type here"
-                name="user-text"
-                id="user-text"
-              />
-            </form>
-            <!-- This is where the list of user initials and scores will form -->
-            <ul id="user-list"></ul>
+    <main>
+      <!-- Begin card for scores -->
+      <section class="col-sm-4" id="card-container">
+        <div class="card border-dark">
+          <div class="card-body">
+            <h1
+              class="card-title"
+              style="font-size: 50px; padding: 10px; color: deeppink;"
+            >
+              Top Scores
+            </h1>
+            <div class="user-scores">
+              <!-- Form for user input -->
+              <form id="user-form" method="POST">
+                <label for="user-text"
+                  >Tye your initials and score and press Enter!</label
+                >
+                <!-- Input text field -->
+                <input
+                  type="text"
+                  placeholder="Type here"
+                  name="user-text"
+                  id="user-text"
+                />
+              </form>
+              <!-- This is where the list of user initials and scores will form -->
+              <ul id="user-list"></ul>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
+      </section>
+    </main>
     <!-- Begin footer -->
     <footer
       style="border-top: 4px solid deeppink; background-color: white;"
@@ -140,10 +143,3 @@
   </body>
   <!-- End body -->
 </html>
-
-<!--   <button class="btn btn-dark" id="clear">
-              Clear Scores
-            </button> -->
-
-<!-- <a href="index.html" class="btn btn-dark" id="back"
-            >Back to the Quiz!</a> -->

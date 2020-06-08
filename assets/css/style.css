@@ -89,6 +89,7 @@ main {
   justify-content: center;
   align-items: center;
   padding: 10px;
+  font-size: 30px;
 }
 
 /* Styling for end of quiz message */
@@ -97,24 +98,7 @@ main {
   justify-content: center;
   align-items: center;
   padding: 10px;
-}
-
-/* Styling for the initials submission form */
-#form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#user-initials {
-  padding: 10px;
-}
-
-/* Styling for the scores div */
-#scores {
-  font-size: 25px;
-  padding: 10px;
-  color: black;
+  font-size: 30px;
 }
 
 /* Styling for score card container */
@@ -122,6 +106,12 @@ main {
   text-align: center;
   margin: 0 auto;
   float: none;
+}
+
+/* Styling for scores card */
+#user-text {
+  margin: 10px;
+  padding: 10px;
 }
 
 .hide {

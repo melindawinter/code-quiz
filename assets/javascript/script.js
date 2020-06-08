@@ -10,9 +10,6 @@ var userFeedback = document.getElementById("feedback");
 var quizTimerEl = document.getElementById("timer");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons");
-//var formEl = document.getElementById("form");
-//var initialsEl = document.getElementById("user-initials");
-//var submitButton = document.getElementById("submit");
 var finalScoresEl = document.getElementById("final-score");
 var shuffledQuestions, currentQuestionIndex;
 var score = 0;
@@ -163,6 +160,7 @@ function selectAnswer(e) {
   var selectedButton = e.target;
   var correct = selectedButton.dataset.correct;
   setStatusClass(document.body, correct);
+
   //What will happen for correct and incorrect answers
   if (correct) {
     score++;
@@ -176,16 +174,19 @@ function selectAnswer(e) {
   Array.from(answerButtonsEl.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
   });
+
   //What happens during the duration of the quiz
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
     userFeedback.classList.remove("hide");
-    //what happens when all of the questions have been cycled through
+
+    //What happens when all of the questions have been cycled through
   } else {
     quizTimerEl.classList.add("hide");
     endQuiz();
   }
 }
+
 //This function stops the quiz if the user runs out of time
 function timesUp() {
   endQuiz();
@@ -203,7 +204,7 @@ function endQuiz() {
   getScoreButton.classList.remove("hide");
 }
 
-//This is for the form input and submission
+//This is how the user gets their score
 getScoreButton.addEventListener("click", function (event) {
   event.preventDefault();
 
