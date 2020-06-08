@@ -110,14 +110,6 @@ main {
   padding: 10px;
 }
 
-/* Styling for buttons on scores page */
-#clear {
-  float: right;
-}
-#back {
-  float: left;
-}
-
 /* Styling for the scores div */
 #scores {
   font-size: 25px;
