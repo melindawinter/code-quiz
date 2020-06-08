@@ -71,14 +71,22 @@
           <h1 class="card-title" style="font-size: 50px; padding: 10px;">
             Top Scores
           </h1>
-          <div id="scores" class="card-text"></div>
-          <div>
-            <button class="btn btn-dark" id="clear">
-              Clear Scores
-            </button>
-
-            <!-- <a href="index.html" class="btn btn-dark" id="back"
-            >Back to the Quiz!</a> -->
+          <div class="user-scores">
+            <!-- Form for user input -->
+            <form id="user-form" method="POST">
+              <label for="user-text"
+                >Tye your initials and score and press Enter!</label
+              >
+              <!-- Input text field -->
+              <input
+                type="text"
+                placeholder="Type here"
+                name="user-text"
+                id="user-text"
+              />
+            </form>
+            <!-- This is where the list of user initials and scores will form -->
+            <ul id="user-list"></ul>
           </div>
         </div>
       </div>
@@ -132,3 +140,10 @@
   </body>
   <!-- End body -->
 </html>
+
+<!--   <button class="btn btn-dark" id="clear">
+              Clear Scores
+            </button> -->
+
+<!-- <a href="index.html" class="btn btn-dark" id="back"
+            >Back to the Quiz!</a> -->

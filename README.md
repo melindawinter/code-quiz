@@ -4,6 +4,8 @@
 
 I have created a short quiz about coding in JavaScript to test the knowledge of the user. The user presses a Start button to begin. They then click on an answer and receive feedback and see the correct answer. After all questions have been answered, the user can see and post their score.
 
+![Coding Quiz Website](2020-06-07-18-48-38.png)
+
 ## Credits
 
 Thank you to my boot camp instructor, Joe Tanksley, and TA, Adam Abundis. They very patiently helped me work through some fundamental issues with my code during office hours. Thanks to Thor Nolan, my tutor, who helped me figure out how to ge the feedback and scoring element of the quiz working. Thank you to Jeanette Hernandez for a very productive collaboration session on this project and Kate An, Cyrus Jose, and Kevin Cabe.
